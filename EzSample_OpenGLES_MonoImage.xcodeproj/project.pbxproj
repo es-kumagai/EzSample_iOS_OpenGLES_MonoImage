@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
+		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
+		B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */; };
+		B1A267921686BCFC00CFD349 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1A267901686BCFC00CFD349 /* InfoPlist.strings */; };
+		B1A267941686BCFC00CFD349 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A267931686BCFC00CFD349 /* main.m */; };
+		B1A267981686BCFC00CFD349 /* EzSampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A267971686BCFC00CFD349 /* EzSampleAppDelegate.m */; };
+		B1A2679A1686BCFC00CFD349 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A267991686BCFC00CFD349 /* Default.png */; };
+		B1A2679C1686BCFC00CFD349 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A2679B1686BCFC00CFD349 /* Default@2x.png */; };
+		B1A2679E1686BCFC00CFD349 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A2679D1686BCFC00CFD349 /* Default-568h@2x.png */; };
+		B1A267A11686BCFC00CFD349 /* EzSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */; };
+		B1A267A41686BCFC00CFD349 /* EzSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1A267871686BCFC00CFD349 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B1A267891686BCFC00CFD349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B1A2678F1686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EzSample_OpenGLES_MonoImage-Info.plist"; sourceTree = "<group>"; };
+		B1A267911686BCFC00CFD349 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1A267931686BCFC00CFD349 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B1A267951686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EzSample_OpenGLES_MonoImage-Prefix.pch"; sourceTree = "<group>"; };
+		B1A267961686BCFC00CFD349 /* EzSampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzSampleAppDelegate.h; sourceTree = "<group>"; };
+		B1A267971686BCFC00CFD349 /* EzSampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzSampleAppDelegate.m; sourceTree = "<group>"; };
+		B1A267991686BCFC00CFD349 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B1A2679B1686BCFC00CFD349 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B1A2679D1686BCFC00CFD349 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B1A2679F1686BCFC00CFD349 /* EzSampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EzSampleViewController.h; sourceTree = "<group>"; };
+		B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzSampleViewController.m; sourceTree = "<group>"; };
+		B1A267A31686BCFC00CFD349 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EzSampleViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1A267801686BCFC00CFD349 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */,
+				B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */,
+				B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1A267781686BCFC00CFD349 = {
+			isa = PBXGroup;
+			children = (
+				B1A2678D1686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage */,
+				B1A267861686BCFC00CFD349 /* Frameworks */,
+				B1A267841686BCFC00CFD349 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1A267841686BCFC00CFD349 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1A267861686BCFC00CFD349 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1A267871686BCFC00CFD349 /* UIKit.framework */,
+				B1A267891686BCFC00CFD349 /* Foundation.framework */,
+				B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1A2678D1686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage */ = {
+			isa = PBXGroup;
+			children = (
+				B1A267961686BCFC00CFD349 /* EzSampleAppDelegate.h */,
+				B1A267971686BCFC00CFD349 /* EzSampleAppDelegate.m */,
+				B1A2679F1686BCFC00CFD349 /* EzSampleViewController.h */,
+				B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */,
+				B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */,
+				B1A2678E1686BCFC00CFD349 /* Supporting Files */,
+			);
+			path = EzSample_OpenGLES_MonoImage;
+			sourceTree = "<group>";
+		};
+		B1A2678E1686BCFC00CFD349 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1A2678F1686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage-Info.plist */,
+				B1A267901686BCFC00CFD349 /* InfoPlist.strings */,
+				B1A267931686BCFC00CFD349 /* main.m */,
+				B1A267951686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage-Prefix.pch */,
+				B1A267991686BCFC00CFD349 /* Default.png */,
+				B1A2679B1686BCFC00CFD349 /* Default@2x.png */,
+				B1A2679D1686BCFC00CFD349 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1A267821686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1A267A71686BCFC00CFD349 /* Build configuration list for PBXNativeTarget "EzSample_OpenGLES_MonoImage" */;
+			buildPhases = (
+				B1A2677F1686BCFC00CFD349 /* Sources */,
+				B1A267801686BCFC00CFD349 /* Frameworks */,
+				B1A267811686BCFC00CFD349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EzSample_OpenGLES_MonoImage;
+			productName = EzSample_OpenGLES_MonoImage;
+			productReference = B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1A2677A1686BCFC00CFD349 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EzSample;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Tomohiro Kumagai";
+			};
+			buildConfigurationList = B1A2677D1686BCFC00CFD349 /* Build configuration list for PBXProject "EzSample_OpenGLES_MonoImage" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B1A267781686BCFC00CFD349;
+			productRefGroup = B1A267841686BCFC00CFD349 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1A267821686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1A267811686BCFC00CFD349 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A267921686BCFC00CFD349 /* InfoPlist.strings in Resources */,
+				B1A2679A1686BCFC00CFD349 /* Default.png in Resources */,
+				B1A2679C1686BCFC00CFD349 /* Default@2x.png in Resources */,
+				B1A2679E1686BCFC00CFD349 /* Default-568h@2x.png in Resources */,
+				B1A267A41686BCFC00CFD349 /* EzSampleViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1A2677F1686BCFC00CFD349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A267941686BCFC00CFD349 /* main.m in Sources */,
+				B1A267981686BCFC00CFD349 /* EzSampleAppDelegate.m in Sources */,
+				B1A267A11686BCFC00CFD349 /* EzSampleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B1A267901686BCFC00CFD349 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1A267911686BCFC00CFD349 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1A267A31686BCFC00CFD349 /* en */,
+			);
+			name = EzSampleViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1A267A51686BCFC00CFD349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B1A267A61686BCFC00CFD349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1A267A81686BCFC00CFD349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EzSample_OpenGLES_MonoImage/EzSample_OpenGLES_MonoImage-Prefix.pch";
+				INFOPLIST_FILE = "EzSample_OpenGLES_MonoImage/EzSample_OpenGLES_MonoImage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B1A267A91686BCFC00CFD349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EzSample_OpenGLES_MonoImage/EzSample_OpenGLES_MonoImage-Prefix.pch";
+				INFOPLIST_FILE = "EzSample_OpenGLES_MonoImage/EzSample_OpenGLES_MonoImage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1A2677D1686BCFC00CFD349 /* Build configuration list for PBXProject "EzSample_OpenGLES_MonoImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1A267A51686BCFC00CFD349 /* Debug */,
+				B1A267A61686BCFC00CFD349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1A267A71686BCFC00CFD349 /* Build configuration list for PBXNativeTarget "EzSample_OpenGLES_MonoImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1A267A81686BCFC00CFD349 /* Debug */,
+				B1A267A91686BCFC00CFD349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1A2677A1686BCFC00CFD349 /* Project object */;
+}
