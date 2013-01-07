@@ -1,5 +1,5 @@
 //
-//  EzSampleViewController.h
+//  EzMonoImage.h
 //  EzSample_OpenGLES_MonoImage
 //
 //  Created by 熊谷 友宏 on H.24/12/23.
@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GLKit/GLKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface EzSampleViewController : UIViewController
+@interface EzMonoImage : UIView
 
-@property (nonatomic,readonly,weak) IBOutlet UIImageView* imageView;
+@property (nonatomic,readwrite,strong) UIImage* image;
 
 @end

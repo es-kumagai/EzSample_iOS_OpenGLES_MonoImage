@@ -12,18 +12,11 @@
 
 @implementation EzSampleAppDelegate
 
-- (void)dealloc
-{
-	[_window release];
-	[_viewController release];
-    [super dealloc];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-	self.viewController = [[[EzSampleViewController alloc] initWithNibName:@"EzSampleViewController" bundle:nil] autorelease];
+	self.viewController = [[EzSampleViewController alloc] initWithNibName:@"EzSampleViewController" bundle:nil];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
