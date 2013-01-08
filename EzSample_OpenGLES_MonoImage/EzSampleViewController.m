@@ -19,6 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+//	for (UIView* monochromeView in self.monochromeViews)
+//	{
+//		monochromeView.backgroundColor = [UIColor colorWithRed:0.2353 green:0.7098 blue:0.2353 alpha:1.0];
+//	}
+	
 	// Do any additional setup after loading the view, typically from a nib.
 	
 //	UIImage* image = [UIImage imageNamed:@"IMG_0098.JPG"];

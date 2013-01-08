@@ -12,6 +12,12 @@
 		B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */; };
 		B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D5169BF3E9006849C8 /* 5-m@2x.png */; };
 		B19D44D8169C1CEC006849C8 /* IMG_0098s.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */; };
+		B19D44DA169C369F006849C8 /* EzEraseButton.48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D9169C369E006849C8 /* EzEraseButton.48x48.png */; };
+		B19D44DC169C397B006849C8 /* EzAddressBook.32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44DB169C397B006849C8 /* EzAddressBook.32x32.png */; };
+		B19D44E0169C3A89006849C8 /* EzIPPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44DF169C3A89006849C8 /* EzIPPhone.png */; };
+		B19D44E3169C48B1006849C8 /* EzPhoneDialler.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E1169C48AF006849C8 /* EzPhoneDialler.png */; };
+		B19D44E4169C48B1006849C8 /* EzPhoneDialler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E2169C48B0006849C8 /* EzPhoneDialler@2x.png */; };
+		B19D44E6169C48DD006849C8 /* EzIPPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */; };
 		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
 		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
 		B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */; };
@@ -37,6 +43,12 @@
 		B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzEraseButton.48x48@2x.png"; sourceTree = "<group>"; };
 		B19D44D5169BF3E9006849C8 /* 5-m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-m@2x.png"; sourceTree = "<group>"; };
 		B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0098s.JPG; sourceTree = "<group>"; };
+		B19D44D9169C369E006849C8 /* EzEraseButton.48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EzEraseButton.48x48.png; sourceTree = "<group>"; };
+		B19D44DB169C397B006849C8 /* EzAddressBook.32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EzAddressBook.32x32.png; sourceTree = "<group>"; };
+		B19D44DF169C3A89006849C8 /* EzIPPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EzIPPhone.png; sourceTree = "<group>"; };
+		B19D44E1169C48AF006849C8 /* EzPhoneDialler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EzPhoneDialler.png; sourceTree = "<group>"; };
+		B19D44E2169C48B0006849C8 /* EzPhoneDialler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzPhoneDialler@2x.png"; sourceTree = "<group>"; };
+		B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzIPPhone@2x.png"; sourceTree = "<group>"; };
 		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A267871686BCFC00CFD349 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1A267891686BCFC00CFD349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,7 +132,13 @@
 				B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */,
 				B19D44CD169BA463006849C8 /* Lenna.png */,
 				B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */,
+				B19D44D9169C369E006849C8 /* EzEraseButton.48x48.png */,
 				B19D44D5169BF3E9006849C8 /* 5-m@2x.png */,
+				B19D44DB169C397B006849C8 /* EzAddressBook.32x32.png */,
+				B19D44DF169C3A89006849C8 /* EzIPPhone.png */,
+				B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */,
+				B19D44E1169C48AF006849C8 /* EzPhoneDialler.png */,
+				B19D44E2169C48B0006849C8 /* EzPhoneDialler@2x.png */,
 				B1A2678E1686BCFC00CFD349 /* Supporting Files */,
 				B1A267AA1686BD3600CFD349 /* EzMonoImage.h */,
 				B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */,
@@ -206,6 +224,12 @@
 				B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */,
 				B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */,
 				B19D44D8169C1CEC006849C8 /* IMG_0098s.JPG in Resources */,
+				B19D44DA169C369F006849C8 /* EzEraseButton.48x48.png in Resources */,
+				B19D44DC169C397B006849C8 /* EzAddressBook.32x32.png in Resources */,
+				B19D44E0169C3A89006849C8 /* EzIPPhone.png in Resources */,
+				B19D44E3169C48B1006849C8 /* EzPhoneDialler.png in Resources */,
+				B19D44E4169C48B1006849C8 /* EzPhoneDialler@2x.png in Resources */,
+				B19D44E6169C48DD006849C8 /* EzIPPhone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

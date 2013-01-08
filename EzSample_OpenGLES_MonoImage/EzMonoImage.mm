@@ -39,6 +39,11 @@
 	size_t imageWidth;
 	size_t imageHeight;
 	
+	CGFloat red;
+	CGFloat green;
+	CGFloat blue;
+	CGFloat alpha;
+	
 	CGFloat scale;
 }
 
@@ -60,21 +65,6 @@
 {
 	self = [super initWithCoder:aDecoder];
 
-	//image = [UIImage imageNamed:@"IMG_0098.JPG"];
-//	image = [UIImage imageNamed:@"IMG_0098s.JPG"];
-//	image = [UIImage imageNamed:@"Lenna.png"];
-//	image = [UIImage imageNamed:@"5-m.png"];
-	image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
-
-	imageRef = image.CGImage;
-	
-	imageWidth = CGImageGetWidth(imageRef);
-	imageHeight = CGImageGetHeight(imageRef);
-
-	// Retina 対応。このとき、画像サイズはそのまま、表示座標系が２倍に成る？
-	scale = [UIScreen mainScreen].scale;
-	self.contentScaleFactor = scale;
-	
 	NSLog(@"INIT");
 	// drawRect 内で以下を実行すると "calling -display has no effect" になる。
 	/** 設定されたレイヤの取得 **/
@@ -136,9 +126,29 @@
 {
 	[super layoutSubviews];
 	
-//	glBindRenderbuffer(GL_RENDERBUFFER, mColorBuffer);	// MARK: 必要？
-//	EzOpenGLESAssert;
+	//image = [UIImage imageNamed:@"IMG_0098.JPG"];
+	//	image = [UIImage imageNamed:@"IMG_0098s.JPG"];
+	//	image = [UIImage imageNamed:@"Lenna.png"];
+	//	image = [UIImage imageNamed:@"5-m.png"];
+	//	image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
+	image = self.sourceImageView.image;
 	
+	
+	imageRef = image.CGImage;
+	imageWidth = CGImageGetWidth(imageRef);
+	imageHeight = CGImageGetHeight(imageRef);
+	
+	// Retina 対応。このとき、画像サイズはそのまま、表示座標系が２倍に成る？
+	scale = [UIScreen mainScreen].scale;
+	self.contentScaleFactor = image.scale;
+	
+	[self.sourceMonochromeView.backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
+	
+	NSLog(@"Layout Begin: %p", self);
+	
+	
+	[EAGLContext setCurrentContext:mpGLContext];	// 複数のコンテキストが存在するとき、これが無いとおかしくなる。
+		
 	// 先ほどのレンダバッファオブジェクトに描画するために必要なストレージを割り当てる。
 	//      fromDrawable : レンダバッファにバインドするストレージ
 	// ストレージをレイヤに割り当てることで、バッファに書き込んだらレイヤに書き込まれる!
@@ -361,22 +371,29 @@
 	NSAssert(u_matrix != -1, @"Uniform variable 'u_matrix' was not found.");
 	
 //	[self setNeedsDisplay];
+	NSLog(@"Layout End: %p", self);
+	
 	[self draw];
 }
 
 - (void)draw
 {
-	NSLog(@"Draw");
+	NSLog(@"Draw Begin: %p", self);
 
 	// MARK: drawView@IBGLView
 	
 	[EAGLContext setCurrentContext:mpGLContext]; // MARK: 必要？
-	glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);	// MARK: 必要？
-	EzOpenGLESAssert;
+//	glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer);	// MARK: 必要？
+//	EzOpenGLESAssert;
+//	glBindRenderbuffer( GL_RENDERBUFFER, mColorBuffer );
+//	EzOpenGLESAssert;
+//	// フレームバッファとレンダバッファを結びつける
+//	glFramebufferRenderbuffer( GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mColorBuffer );
+//	EzOpenGLESAssert;
 	
 	glClearColor(0.8, 1.0, 1.0, 1.0);
 	EzOpenGLESAssert;
-	
+
 //	glClear(GL_COLOR_BUFFER_BIT);
 	EzOpenGLESAssert;
 
@@ -518,7 +535,7 @@
 	
 	// ユニフォーム設定
 //	glUniform4f(u_color, 0.5, 1.0, 0.5, 1.0);
-	glUniform4f(u_color, 0.2353, 0.7098, 0.2353, 1.0);
+	glUniform4f(u_color, red, green, blue, alpha);
 	EzOpenGLESAssert;
 
 	// 平行投影変換の写像
@@ -573,10 +590,17 @@
 	
 	glDisable(GL_BLEND);
 	EzOpenGLESAssert;
+
+	NSLog(@"Draw End: %p", self);
+
 }
 
 - (void)dealloc
 {
+	NSLog(@"Dealloc Begin: %p", self);
+	
+	NSLog(@"Finalize Begin: %p", self);
+	
 	[EAGLContext setCurrentContext:nil];
 	
 	glDeleteProgram(program);
@@ -590,6 +614,11 @@
 	
 	glDeleteRenderbuffers(1, &mColorBuffer);
 	EzOpenGLESAssert;
+	
+	mpGLContext = nil;
+	NSLog(@"Finalize End: %p", self);
+	
+	NSLog(@"Dealloc End: %p", self);
 }
 
 @end

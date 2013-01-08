@@ -12,6 +12,9 @@
 
 @interface EzMonoImage : UIView
 
+@property (nonatomic,readonly,weak) IBOutlet UIImageView* sourceImageView;
+@property (nonatomic,readonly,weak) IBOutlet UIView* sourceMonochromeView;
+
 @end
 
 // デグリーからラジアンへ変換

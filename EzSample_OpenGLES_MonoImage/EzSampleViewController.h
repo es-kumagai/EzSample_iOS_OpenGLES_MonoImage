@@ -11,5 +11,6 @@
 @interface EzSampleViewController : UIViewController
 
 @property (nonatomic,readonly,weak) IBOutlet UIImageView* imageView;
+@property (nonatomic,readonly,strong) IBOutletCollection(UIView) NSArray* monochromeViews;
 
 @end
