@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B19D44CE169BA463006849C8 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44CD169BA463006849C8 /* Lenna.png */; };
+		B19D44D2169BC0E3006849C8 /* Matrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = B19D44D1169BBFF4006849C8 /* Matrix.mm */; };
+		B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */; };
+		B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D5169BF3E9006849C8 /* 5-m@2x.png */; };
 		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
 		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
 		B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */; };
@@ -18,7 +22,7 @@
 		B1A2679E1686BCFC00CFD349 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A2679D1686BCFC00CFD349 /* Default-568h@2x.png */; };
 		B1A267A11686BCFC00CFD349 /* EzSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */; };
 		B1A267A41686BCFC00CFD349 /* EzSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */; };
-		B1A267AC1686BD3600CFD349 /* EzMonoImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A267AB1686BD3600CFD349 /* EzMonoImage.m */; };
+		B1A267AC1686BD3600CFD349 /* EzMonoImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */; };
 		B1A267AE1686BE7D00CFD349 /* IMG_0098.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B1A267AD1686BE7D00CFD349 /* IMG_0098.JPG */; };
 		B1A267B01686C3AC00CFD349 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267AF1686C3AC00CFD349 /* CoreImage.framework */; };
 		B1A267B21686D3C500CFD349 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267B11686D3C500CFD349 /* QuartzCore.framework */; };
@@ -26,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B19D44CD169BA463006849C8 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
+		B19D44D0169BBFF4006849C8 /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
+		B19D44D1169BBFF4006849C8 /* Matrix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Matrix.mm; sourceTree = "<group>"; };
+		B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzEraseButton.48x48@2x.png"; sourceTree = "<group>"; };
+		B19D44D5169BF3E9006849C8 /* 5-m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-m@2x.png"; sourceTree = "<group>"; };
 		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A267871686BCFC00CFD349 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1A267891686BCFC00CFD349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,7 +52,7 @@
 		B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EzSampleViewController.m; sourceTree = "<group>"; };
 		B1A267A31686BCFC00CFD349 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/EzSampleViewController.xib; sourceTree = "<group>"; };
 		B1A267AA1686BD3600CFD349 /* EzMonoImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzMonoImage.h; sourceTree = "<group>"; };
-		B1A267AB1686BD3600CFD349 /* EzMonoImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EzMonoImage.m; sourceTree = "<group>"; };
+		B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EzMonoImage.mm; sourceTree = "<group>"; };
 		B1A267AD1686BE7D00CFD349 /* IMG_0098.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0098.JPG; sourceTree = "<group>"; };
 		B1A267AF1686C3AC00CFD349 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		B1A267B11686D3C500CFD349 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -106,9 +115,14 @@
 				B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */,
 				B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */,
 				B1A267AD1686BE7D00CFD349 /* IMG_0098.JPG */,
+				B19D44CD169BA463006849C8 /* Lenna.png */,
+				B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */,
+				B19D44D5169BF3E9006849C8 /* 5-m@2x.png */,
 				B1A2678E1686BCFC00CFD349 /* Supporting Files */,
 				B1A267AA1686BD3600CFD349 /* EzMonoImage.h */,
-				B1A267AB1686BD3600CFD349 /* EzMonoImage.m */,
+				B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */,
+				B19D44D0169BBFF4006849C8 /* Matrix.h */,
+				B19D44D1169BBFF4006849C8 /* Matrix.mm */,
 			);
 			path = EzSample_OpenGLES_MonoImage;
 			sourceTree = "<group>";
@@ -185,6 +199,9 @@
 				B1A2679E1686BCFC00CFD349 /* Default-568h@2x.png in Resources */,
 				B1A267A41686BCFC00CFD349 /* EzSampleViewController.xib in Resources */,
 				B1A267AE1686BE7D00CFD349 /* IMG_0098.JPG in Resources */,
+				B19D44CE169BA463006849C8 /* Lenna.png in Resources */,
+				B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */,
+				B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +215,8 @@
 				B1A267941686BCFC00CFD349 /* main.m in Sources */,
 				B1A267981686BCFC00CFD349 /* EzSampleAppDelegate.m in Sources */,
 				B1A267A11686BCFC00CFD349 /* EzSampleViewController.m in Sources */,
-				B1A267AC1686BD3600CFD349 /* EzMonoImage.m in Sources */,
+				B1A267AC1686BD3600CFD349 /* EzMonoImage.mm in Sources */,
+				B19D44D2169BC0E3006849C8 /* Matrix.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +333,7 @@
 				B1A267A91686BCFC00CFD349 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

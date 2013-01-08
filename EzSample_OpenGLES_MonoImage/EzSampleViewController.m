@@ -21,7 +21,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	UIImage* image = [UIImage imageNamed:@"IMG_0098.JPG"];
+//	UIImage* image = [UIImage imageNamed:@"IMG_0098.JPG"];
 	
 //	CIImage *ciImage = [[CIImage alloc] initWithImage:image];
 //    CIFilter *ciFilter = [CIFilter filterWithName:@"CIColorMonochrome" //フィルター名
