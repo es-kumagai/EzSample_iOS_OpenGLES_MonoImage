@@ -12,8 +12,6 @@
 
 @interface EzMonoImage : UIView
 
-@property (nonatomic,readwrite,strong) UIImage* image;
-
 @end
 
 // デグリーからラジアンへ変換

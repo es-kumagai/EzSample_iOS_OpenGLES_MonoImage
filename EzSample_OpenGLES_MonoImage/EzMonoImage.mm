@@ -38,6 +38,8 @@
 	CGImageRef imageRef;
 	size_t imageWidth;
 	size_t imageHeight;
+	
+	CGFloat scale;
 }
 
 + (Class)layerClass
@@ -58,9 +60,9 @@
 {
 	self = [super initWithCoder:aDecoder];
 
-	image = [UIImage imageNamed:@"IMG_0098.JPG"];
+	//image = [UIImage imageNamed:@"IMG_0098.JPG"];
 	//	 image = [UIImage imageNamed:@"Lenna.png"];
-	//image = [UIImage imageNamed:@"5-m.png"];
+	image = [UIImage imageNamed:@"5-m.png"];
 	//	UIImage* image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
 
 	imageRef = image.CGImage;
@@ -68,8 +70,9 @@
 	imageWidth = CGImageGetWidth(imageRef);
 	imageHeight = CGImageGetHeight(imageRef);
 
-	// Retina 対応
-//	self.contentScaleFactor = [UIScreen mainScreen].scale;
+	// Retina 対応。このとき、画像サイズはそのまま、表示座標系が２倍に成る？
+	scale = [UIScreen mainScreen].scale;
+	self.contentScaleFactor = scale;
 	
 	NSLog(@"INIT");
 	// drawRect 内で以下を実行すると "calling -display has no effect" になる。
@@ -77,7 +80,7 @@
 	CAEAGLLayer* pGLLayer = (CAEAGLLayer*)self.layer;
 	
 	// 不透明にすることで処理速度が上がる
-	pGLLayer.opaque = YES;
+	pGLLayer.opaque = NO;
 	
 	
 	/** 描画の設定を行う **/
@@ -150,8 +153,8 @@
 
 	NSLog(@"w=%d, h=%d", width, height);
 
-	glViewport(0.0, 0.0, width, height);	// MARK: 必須
-//	glViewport(0.0, 0.0, imageWidth, imageHeight);
+//	glViewport(0.0, 0.0, width, height);	// MARK: 必須
+	glViewport(0.0, 0.0, imageWidth, imageHeight);
 	EzOpenGLESAssert;
 	NSLog(@"Image : w=%lu, h=%lu", imageWidth, imageHeight);
 	
@@ -169,8 +172,10 @@
 	// シェーダーを作る。
 	const char* code = ""
 	"precision lowp float;\n"
+	"//precision highp float;\n"
 	"varying vec2 v_texCoord;\n"
 	"uniform lowp vec4 u_color;\n"
+	"//uniform highp vec4 u_color;\n"
 	"uniform sampler2D u_texture;\n"
 	"void main(){\n"
 	"	vec4 color;\n"
@@ -408,6 +413,7 @@
 	// 画像データ準備
 	size_t imageBytes = imageWidth * imageHeight * 4 * sizeof(Byte);
 	Byte* imageData = (Byte*)malloc(imageBytes);
+	memset(imageData, 0, imageBytes);	// バッファを初期化しないとノイズが入る様子。
 	
 	NSLog(@"Texture (%p) : w=%lu, h=%lu", imageData, imageWidth, imageHeight);
 	
@@ -525,8 +531,8 @@
 //		0, 0, 1, 0,
 //		0, 0, 0, 1 };
 	GLfloat matrix[16] = {
-		0.00655738, 0, 0, 0,
-		0, -0.00930233, 0, 0,
+		2.0f/w, 0, 0, 0,
+		0, -2.0f/h, 0, 0,
 		0, 0, 1, 0,
 		-1, 1, 0, 1 };
 	glUniformMatrix4fv(u_matrix, 1, GL_FALSE, matrix);
