@@ -11,6 +11,7 @@
 		B19D44D2169BC0E3006849C8 /* Matrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = B19D44D1169BBFF4006849C8 /* Matrix.mm */; };
 		B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */; };
 		B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D5169BF3E9006849C8 /* 5-m@2x.png */; };
+		B19D44D8169C1CEC006849C8 /* IMG_0098s.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */; };
 		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
 		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
 		B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */; };
@@ -35,6 +36,7 @@
 		B19D44D1169BBFF4006849C8 /* Matrix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Matrix.mm; sourceTree = "<group>"; };
 		B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzEraseButton.48x48@2x.png"; sourceTree = "<group>"; };
 		B19D44D5169BF3E9006849C8 /* 5-m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-m@2x.png"; sourceTree = "<group>"; };
+		B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0098s.JPG; sourceTree = "<group>"; };
 		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A267871686BCFC00CFD349 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1A267891686BCFC00CFD349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				B1A267A01686BCFC00CFD349 /* EzSampleViewController.m */,
 				B1A267A21686BCFC00CFD349 /* EzSampleViewController.xib */,
 				B1A267AD1686BE7D00CFD349 /* IMG_0098.JPG */,
+				B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */,
 				B19D44CD169BA463006849C8 /* Lenna.png */,
 				B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */,
 				B19D44D5169BF3E9006849C8 /* 5-m@2x.png */,
@@ -202,6 +205,7 @@
 				B19D44CE169BA463006849C8 /* Lenna.png in Resources */,
 				B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */,
 				B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */,
+				B19D44D8169C1CEC006849C8 /* IMG_0098s.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

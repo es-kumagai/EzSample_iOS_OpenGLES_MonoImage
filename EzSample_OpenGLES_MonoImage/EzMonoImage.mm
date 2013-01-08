@@ -61,9 +61,10 @@
 	self = [super initWithCoder:aDecoder];
 
 	//image = [UIImage imageNamed:@"IMG_0098.JPG"];
-	//	 image = [UIImage imageNamed:@"Lenna.png"];
-	image = [UIImage imageNamed:@"5-m.png"];
-	//	UIImage* image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
+//	image = [UIImage imageNamed:@"IMG_0098s.JPG"];
+//	image = [UIImage imageNamed:@"Lenna.png"];
+//	image = [UIImage imageNamed:@"5-m.png"];
+	image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
 
 	imageRef = image.CGImage;
 	
@@ -172,22 +173,39 @@
 	// シェーダーを作る。
 	const char* code = ""
 	"precision lowp float;\n"
-	"//precision highp float;\n"
 	"varying vec2 v_texCoord;\n"
 	"uniform lowp vec4 u_color;\n"
-	"//uniform highp vec4 u_color;\n"
 	"uniform sampler2D u_texture;\n"
 	"void main(){\n"
-	"	vec4 color;\n"
+	"	vec4 texcolor;\n"
 	"	vec4 monocolor;\n"
-	"	float brightness;\n"
+	"	float texcolor_brightness;\n"
+	"	vec3 coefficient;\n"
 	"	monocolor = u_color;\n"
-	"	color = texture2D(u_texture, v_texCoord.xy);\n"
-	"	brightness = max(color.r, max(color.g, color.b));"
-	"	gl_FragColor = vec4(monocolor.r * brightness, monocolor.g * brightness, monocolor.b * brightness, color.a);\n"
-	"//	gl_FragColor = color;\n"
+	"	texcolor = texture2D(u_texture, v_texCoord.xy);\n"
+	"	texcolor_brightness = max(texcolor.r, max(texcolor.g, texcolor.b));\n"
+	"	coefficient = vec3(1.0) - monocolor.rgb;\n"
+	"	gl_FragColor = vec4(monocolor.rgb + vec3(pow(texcolor_brightness, 3.0)) * coefficient, monocolor.a * texcolor.a);\n"
 	"}";
 	
+//	code = ""
+//	"precision lowp float;\n"
+//	"//precision highp float;\n"
+//	"varying vec2 v_texCoord;\n"
+//	"uniform lowp vec4 u_color;\n"
+//	"//uniform highp vec4 u_color;\n"
+//	"uniform sampler2D u_texture;\n"
+//	"void main(){\n"
+//	"	vec4 color;\n"
+//	"	vec4 monocolor;\n"
+//	"	float brightness;\n"
+//	"	monocolor = u_color;\n"
+//	"	color = texture2D(u_texture, v_texCoord.xy);\n"
+//	"	brightness = max(color.r, max(color.g, color.b));"
+//	"	gl_FragColor = vec4(monocolor.r * brightness, monocolor.g * brightness, monocolor.b * brightness, color.a);\n"
+//	"//	gl_FragColor = color;\n"
+//	"}";
+
 	// 頂点シェーダーもいる？
 	const char* vcode = ""
 	"attribute vec2 a_position;\n"
@@ -359,7 +377,7 @@
 	glClearColor(0.8, 1.0, 1.0, 1.0);
 	EzOpenGLESAssert;
 	
-	glClear(GL_COLOR_BUFFER_BIT);
+//	glClear(GL_COLOR_BUFFER_BIT);
 	EzOpenGLESAssert;
 
 	// MARK: drawMain@MyGLView
@@ -499,7 +517,8 @@
 	
 	
 	// ユニフォーム設定
-	glUniform4f(u_color, 0.5, 1.0, 0.5, 1.0);
+//	glUniform4f(u_color, 0.5, 1.0, 0.5, 1.0);
+	glUniform4f(u_color, 0.2353, 0.7098, 0.2353, 1.0);
 	EzOpenGLESAssert;
 
 	// 平行投影変換の写像
