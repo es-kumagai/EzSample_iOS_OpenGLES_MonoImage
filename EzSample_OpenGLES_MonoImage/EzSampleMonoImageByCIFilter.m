@@ -33,13 +33,9 @@
 	UIImage* image = self.sourceImageView.image;
 	UIColor* monochromeColor = self.sourceMonochromeView.backgroundColor;
 	
-	float intensity = 1.0;	// 線形ブレンドの強さを指定します。1.0 のときに完全に指定した色で単調化され、それより大きい場合は強く、小さい場合は弱く適用されますが、指定した色とは別の印象の色も入ってきます。
-	
-	// 灰色を下地にして、単調色を設定します。
-	// MARK: OpenGL ES 2.0 のフラグメントシェーダーが判れば、もっと的確で速い処理が書けるかもしれません。
 	CIImage* ciImage = [[CIImage alloc] initWithImage:image];
 	CIColor* ciColor = [[CIColor alloc] initWithColor:monochromeColor];
-	NSNumber* nsIntensity = [[NSNumber alloc] initWithFloat:intensity];
+	NSNumber* nsIntensity = @1.0f;
 	
 	CIContext* ciContext = [CIContext contextWithOptions:nil];
 	CIFilter* ciMonochromeFilter = [CIFilter filterWithName:@"CIColorMonochrome" keysAndValues:kCIInputImageKey, ciImage, @"inputColor", ciColor, @"inputIntensity", nsIntensity, nil];
