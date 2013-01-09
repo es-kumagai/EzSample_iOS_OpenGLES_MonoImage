@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B19D44CE169BA463006849C8 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44CD169BA463006849C8 /* Lenna.png */; };
-		B19D44D2169BC0E3006849C8 /* Matrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = B19D44D1169BBFF4006849C8 /* Matrix.mm */; };
 		B19D44D4169BF2BE006849C8 /* EzEraseButton.48x48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */; };
 		B19D44D6169BF3E9006849C8 /* 5-m@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D5169BF3E9006849C8 /* 5-m@2x.png */; };
 		B19D44D8169C1CEC006849C8 /* IMG_0098s.JPG in Resources */ = {isa = PBXBuildFile; fileRef = B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */; };
@@ -20,6 +19,7 @@
 		B19D44E6169C48DD006849C8 /* EzIPPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */; };
 		B19D44E9169C4B00006849C8 /* divide-l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E7169C4AFF006849C8 /* divide-l@2x.png */; };
 		B19D44EA169C4B00006849C8 /* divide-l.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E8169C4B00006849C8 /* divide-l.png */; };
+		B19FB9C8169D962100176249 /* EzSampleMonoImageByCIFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */; };
 		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
 		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
 		B1A2678C1686BCFC00CFD349 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A2678B1686BCFC00CFD349 /* CoreGraphics.framework */; };
@@ -40,8 +40,6 @@
 
 /* Begin PBXFileReference section */
 		B19D44CD169BA463006849C8 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
-		B19D44D0169BBFF4006849C8 /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
-		B19D44D1169BBFF4006849C8 /* Matrix.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Matrix.mm; sourceTree = "<group>"; };
 		B19D44D3169BF2BE006849C8 /* EzEraseButton.48x48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzEraseButton.48x48@2x.png"; sourceTree = "<group>"; };
 		B19D44D5169BF3E9006849C8 /* 5-m@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-m@2x.png"; sourceTree = "<group>"; };
 		B19D44D7169C1CEC006849C8 /* IMG_0098s.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0098s.JPG; sourceTree = "<group>"; };
@@ -53,6 +51,8 @@
 		B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzIPPhone@2x.png"; sourceTree = "<group>"; };
 		B19D44E7169C4AFF006849C8 /* divide-l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divide-l@2x.png"; sourceTree = "<group>"; };
 		B19D44E8169C4B00006849C8 /* divide-l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divide-l.png"; sourceTree = "<group>"; };
+		B19FB9C6169D962100176249 /* EzSampleMonoImageByCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzSampleMonoImageByCIFilter.h; sourceTree = "<group>"; };
+		B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EzSampleMonoImageByCIFilter.m; sourceTree = "<group>"; };
 		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A267871686BCFC00CFD349 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B1A267891686BCFC00CFD349 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -148,8 +148,8 @@
 				B1A2678E1686BCFC00CFD349 /* Supporting Files */,
 				B1A267AA1686BD3600CFD349 /* EzMonoImage.h */,
 				B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */,
-				B19D44D0169BBFF4006849C8 /* Matrix.h */,
-				B19D44D1169BBFF4006849C8 /* Matrix.mm */,
+				B19FB9C6169D962100176249 /* EzSampleMonoImageByCIFilter.h */,
+				B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */,
 			);
 			path = EzSample_OpenGLES_MonoImage;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				B1A267981686BCFC00CFD349 /* EzSampleAppDelegate.m in Sources */,
 				B1A267A11686BCFC00CFD349 /* EzSampleViewController.m in Sources */,
 				B1A267AC1686BD3600CFD349 /* EzMonoImage.mm in Sources */,
-				B19D44D2169BC0E3006849C8 /* Matrix.mm in Sources */,
+				B19FB9C8169D962100176249 /* EzSampleMonoImageByCIFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
