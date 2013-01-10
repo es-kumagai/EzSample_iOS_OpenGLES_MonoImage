@@ -36,27 +36,37 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 
 @implementation EzMonoImage
 {
+	// OpenGL ES のコンテキストです。
 	EAGLContext* mpGLContext;
 	
+	// フレームバッファーのハンドルです。
 	GLuint mFrameBuffer;
+	
+	// レンダーバッファーのハンドルです。
 	GLuint mColorBuffer;
 
+	// レンダーバッファーの幅と高さを保存します。
 	GLint bufferWidth;
 	GLint bufferHeight;
 	
+	// シェーダープログラムのハンドルです。
 	GLuint program;
 	
+	// シェーダーで使う Uniform 変数のハンドルです。
 	GLint u_texture;
 	GLint u_color;
 	GLint u_matrix;
 	
+	// テクスチャのハンドルです。
 	GLuint texture;
 	
+	// テクスチャ画像とその情報を保持します。
 	UIImage* image;
 	CGImageRef imageRef;
 	size_t imageWidth;
 	size_t imageHeight;
 	
+	// 単調化で使用する色の各要素です。
 	CGFloat red;
 	CGFloat green;
 	CGFloat blue;
@@ -72,10 +82,34 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 {
 	self = [super initWithCoder:aDecoder];
 
-	// 設定されたレイヤの取得
+	if (self)
+	{
+		[self glInit];
+	}
+
+	return self;
+}
+
+- (void)dealloc
+{
+	[self glFinal];
+}
+
+- (void)layoutSubviews
+{
+	[super layoutSubviews];
+	
+	[self glPrepare];
+	[self glBuild];
+	[self glDraw];
+}
+
+- (void)glInit
+{
+	// UIView に設定されているレイヤを取得します。
 	CAEAGLLayer* pGLLayer = (CAEAGLLayer*)self.layer;
 	
-	// 不透明にすることで処理速度が上がる。透過したい場合は NO とする。
+	// 不透明にすることで処理速度が上がるそうです。透過したい場合は NO とします。
 	pGLLayer.opaque = NO;
 	
 	
@@ -88,34 +122,27 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	
 	mpGLContext = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 	NSAssert(mpGLContext != nil, @"Invalid context.");
-
-	// 現在のコンテキストにレンダリングコンテキストを設定
+	
+	// 現在のコンテキストにレンダリングコンテキストを設定します。
 	[EAGLContext setCurrentContext:mpGLContext];
-
-	// フレームバッファとレンダーバッファを作成
+	
+	// フレームバッファとレンダーバッファを作成します。
 	glGenFramebuffers(1, &mFrameBuffer); EzOpenGLESAssert;
 	glGenRenderbuffers(1, &mColorBuffer); EzOpenGLESAssert;
 	
-	// 作成したバッファーをバインドする。
+	// 作成したバッファーをバインドします。
 	glBindFramebuffer(GL_FRAMEBUFFER, mFrameBuffer); EzOpenGLESAssert;
 	glBindRenderbuffer(GL_RENDERBUFFER, mColorBuffer); EzOpenGLESAssert;
 	
-	// フレームバッファとレンダバッファを関連付け
+	// フレームバッファとレンダバッファを関連付けます。
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, mColorBuffer); EzOpenGLESAssert;
-
-	return self;
 }
 
-- (void)layoutSubviews
+- (void)glPrepare
 {
-	[super layoutSubviews];
+	// 複数のコンテキストが存在するときは、別のところでコンテキストを変更されると正しく動作しなくなるので、冒頭でコンテキストを選択しておきます。
+	[EAGLContext setCurrentContext:mpGLContext];
 	
-	//image = [UIImage imageNamed:@"IMG_0098.JPG"];
-	//	image = [UIImage imageNamed:@"IMG_0098s.JPG"];
-	//	image = [UIImage imageNamed:@"Lenna.png"];
-	//	image = [UIImage imageNamed:@"5-m.png"];
-	//	image = [UIImage imageNamed:@"EzEraseButton.48x48.png"];
-
 	// 画像の情報を取得します。
 	image = self.sourceImageView.image;
 	
@@ -126,12 +153,10 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	// Retina に対応するために、画像のイメージスケールを自分自身 UIView のスケールに設定します。
 	self.contentScaleFactor = image.scale;
 	
+	NSLog(@"scale = %f", image.scale);
 	// モノトーンで塗る色を準備しています。
 	[self.sourceMonochromeView.backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
 	
-	// 複数のコンテキストが存在するときは、別のところでコンテキストを変更されると正しく動作しなくなるので、冒頭でコンテキストを選択しておきます。
-	[EAGLContext setCurrentContext:mpGLContext];
-		
 	// レンダバッファの描画メモリとしてレイヤーを割り当てます。
 	[mpGLContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
 	
@@ -141,26 +166,26 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	// レンダーバッファーの幅と高さを取得します。
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &bufferWidth); EzOpenGLESAssert;
 	glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &bufferHeight); EzOpenGLESAssert;
-
+	
 	// レンダリングした画像を表示する領域を、左下が原点の座標系で指定します。今回は画像サイズと同じにしています。ビューのサイズにすると、ビュー全体に引き延ばされて描画されます。
 	// 座標系を変換する glOrthof は OpenGL ES 2.0 では使えないようでした。
 	glViewport(0.0, 0.0, imageWidth, imageHeight); EzOpenGLESAssert;
-	
-	[self build];
 }
 
-- (void)build
+- (void)glBuild
 {
 	// 複数のコンテキストを使う場合、違うコンテキストが選択されている場合があるので、目的のコンテキストを設定し直します。
 	[EAGLContext setCurrentContext:mpGLContext];
 	
 	// フラグメントシェーダーのコードを準備します。
 	const char* fCode = ""
-	"precision lowp float;\n"
-	"varying vec2 v_texCoord;\n"
+	"precision mediump float;\n"
 	"uniform lowp vec4 u_color;\n"
 	"uniform sampler2D u_texture;\n"
-	"void main(){\n"
+	"varying vec2 v_texCoord;\n"
+	"\n"
+	"void main()\n"
+	"{\n"
 	"	vec4 texcolor;\n"
 	"	vec4 monocolor;\n"
 	"	float texcolor_brightness;\n"
@@ -210,7 +235,7 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	
 	if (!compiled)
 	{
-		EzOpenGLESShaderCompileAssert(vShader);
+		EzOpenGLESShaderCompileAssert(fShader);
 	}
 	
 	// プログラムを構築します。
@@ -268,12 +293,9 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 		
 	u_matrix = glGetUniformLocation(program, "u_matrix");
 	NSAssert(u_matrix != -1, @"Uniform variable 'u_matrix' was not found.");
-	
-	
-	[self draw];
 }
 
-- (void)draw
+- (void)glDraw
 {
 	// 複数のコンテキストを使う場合、違うコンテキストが選択されている場合があるので、目的のコンテキストを設定し直します。
 	[EAGLContext setCurrentContext:mpGLContext];
@@ -432,12 +454,8 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	[mpGLContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-- (void)dealloc
+- (void)glFinal
 {
-	NSLog(@"Dealloc Begin: %p", self);
-	
-	NSLog(@"Finalize Begin: %p", self);
-	
 	// コンテキストを無効化します。
 	[EAGLContext setCurrentContext:nil];
 	
@@ -448,10 +466,6 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	glDeleteTextures(1, &texture); EzOpenGLESAssert;
 	glDeleteFramebuffers(1,&mFrameBuffer); EzOpenGLESAssert;
 	glDeleteRenderbuffers(1, &mColorBuffer); EzOpenGLESAssert;
-	
-	NSLog(@"Finalize End: %p", self);
-	
-	NSLog(@"Dealloc End: %p", self);
 }
 
 @end

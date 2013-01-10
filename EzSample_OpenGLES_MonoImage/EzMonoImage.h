@@ -15,5 +15,10 @@
 @property (nonatomic,readonly,weak) IBOutlet UIImageView* sourceImageView;
 @property (nonatomic,readonly,weak) IBOutlet UIView* sourceMonochromeView;
 
+- (void)glInit;
+- (void)glPrepare;
+- (void)glBuild;
+- (void)glDraw;
+
 @end
 
