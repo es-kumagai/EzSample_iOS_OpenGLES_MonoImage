@@ -14,6 +14,8 @@
 		B19D44E6169C48DD006849C8 /* EzIPPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */; };
 		B19D44E9169C4B00006849C8 /* divide-l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E7169C4AFF006849C8 /* divide-l@2x.png */; };
 		B19D44EA169C4B00006849C8 /* divide-l.png in Resources */ = {isa = PBXBuildFile; fileRef = B19D44E8169C4B00006849C8 /* divide-l.png */; };
+		B19DAE1C169FA29B00EF4296 /* fragment.txt in Resources */ = {isa = PBXBuildFile; fileRef = B19DAE1B169FA29B00EF4296 /* fragment.txt */; };
+		B19DAE23169FA49700EF4296 /* vertex.txt in Resources */ = {isa = PBXBuildFile; fileRef = B19DAE22169FA49600EF4296 /* vertex.txt */; };
 		B19FB9C8169D962100176249 /* EzSampleMonoImageByCIFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */; };
 		B1A267881686BCFC00CFD349 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267871686BCFC00CFD349 /* UIKit.framework */; };
 		B1A2678A1686BCFC00CFD349 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A267891686BCFC00CFD349 /* Foundation.framework */; };
@@ -41,6 +43,8 @@
 		B19D44E5169C48DD006849C8 /* EzIPPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EzIPPhone@2x.png"; sourceTree = "<group>"; };
 		B19D44E7169C4AFF006849C8 /* divide-l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divide-l@2x.png"; sourceTree = "<group>"; };
 		B19D44E8169C4B00006849C8 /* divide-l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divide-l.png"; sourceTree = "<group>"; };
+		B19DAE1B169FA29B00EF4296 /* fragment.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.txt; sourceTree = "<group>"; };
+		B19DAE22169FA49600EF4296 /* vertex.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.txt; sourceTree = "<group>"; };
 		B19FB9C6169D962100176249 /* EzSampleMonoImageByCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EzSampleMonoImageByCIFilter.h; sourceTree = "<group>"; };
 		B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EzSampleMonoImageByCIFilter.m; sourceTree = "<group>"; };
 		B1A267831686BCFC00CFD349 /* EzSample_OpenGLES_MonoImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSample_OpenGLES_MonoImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +139,8 @@
 				B1A267AB1686BD3600CFD349 /* EzMonoImage.mm */,
 				B19FB9C6169D962100176249 /* EzSampleMonoImageByCIFilter.h */,
 				B19FB9C7169D962100176249 /* EzSampleMonoImageByCIFilter.m */,
+				B19DAE1B169FA29B00EF4296 /* fragment.txt */,
+				B19DAE22169FA49600EF4296 /* vertex.txt */,
 			);
 			path = EzSample_OpenGLES_MonoImage;
 			sourceTree = "<group>";
@@ -218,6 +224,8 @@
 				B19D44E9169C4B00006849C8 /* divide-l@2x.png in Resources */,
 				B19D44EA169C4B00006849C8 /* divide-l.png in Resources */,
 				B1E68852169F021100472F9E /* EzPhoneDialler@2x.png in Resources */,
+				B19DAE1C169FA29B00EF4296 /* fragment.txt in Resources */,
+				B19DAE23169FA49700EF4296 /* vertex.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

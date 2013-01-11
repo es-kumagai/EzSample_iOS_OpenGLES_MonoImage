@@ -178,35 +178,14 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	[EAGLContext setCurrentContext:mpGLContext];
 	
 	// フラグメントシェーダーのコードを準備します。
-	const char* fCode = ""
-	"precision mediump float;\n"
-	"uniform lowp vec4 u_color;\n"
-	"uniform sampler2D u_texture;\n"
-	"varying vec2 v_texCoord;\n"
-	"\n"
-	"void main()\n"
-	"{\n"
-	"	vec4 texcolor;\n"
-	"	vec4 monocolor;\n"
-	"	float texcolor_brightness;\n"
-	"	vec3 coefficient;\n"
-	"	monocolor = u_color;\n"
-	"	texcolor = texture2D(u_texture, v_texCoord.xy);\n"
-	"	texcolor_brightness = max(texcolor.r, max(texcolor.g, texcolor.b));\n"
-	"	coefficient = vec3(1.0) - monocolor.rgb;\n"
-	"	gl_FragColor = vec4(monocolor.rgb + vec3(pow(texcolor_brightness, 3.0)) * coefficient, monocolor.a * texcolor.a);\n"
-	"}";
+	NSString* fCodePath = [[NSBundle mainBundle] pathForResource:@"fragment" ofType:@"txt"];
+	NSString* fCodeSource = [[NSString alloc] initWithContentsOfFile:fCodePath encoding:NSUTF8StringEncoding error:nil];
+	const char* fCode = fCodeSource.UTF8String;
 	
 	// 頂点シェーダーも用意します。フラグメントシェーダーにテクスチャの値を渡すために必要です。
-	const char* vCode = ""
-	"attribute vec2 a_position;\n"
-	"attribute vec2 a_texCoord;\n"
-	"uniform mat4 u_matrix;\n"
-	"varying vec2 v_texCoord;\n"
-	"void main(void){\n"
-	"	gl_Position = u_matrix * vec4(a_position, 0.0, 1.0);\n"
-	"	v_texCoord = a_texCoord;\n"
-	"}\n";
+	NSString* vCodePath = [[NSBundle mainBundle] pathForResource:@"vertex" ofType:@"txt"];
+	NSString* vCodeSource = [[NSString alloc] initWithContentsOfFile:vCodePath encoding:NSUTF8StringEncoding error:nil];
+	const char* vCode = vCodeSource.UTF8String;
 	
 	GLint compiled;
 	
