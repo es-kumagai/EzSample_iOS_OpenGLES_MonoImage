@@ -7,9 +7,8 @@
 //
 
 #import "EzMonoImage.h"
-// #import "Matrix.h"
 
-#define EzOpenGLESAssert NSAssert1(glGetError() == GL_NO_ERROR, @"glGetError() = 0x%X", glGetError())
+#define EzOpenGLESAssert { int glGetErrorResult = glGetError(); NSAssert1(glGetErrorResult == GL_NO_ERROR, @"glGetError() = 0x%X", glGetErrorResult); }
 
 void EzOpenGLESShaderCompileAssert(GLuint shader)
 {
@@ -153,7 +152,6 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	// Retina に対応するために、画像のイメージスケールを自分自身 UIView のスケールに設定します。
 	self.contentScaleFactor = image.scale;
 	
-	NSLog(@"scale = %f", image.scale);
 	// モノトーンで塗る色を準備しています。
 	[self.sourceMonochromeView.backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
 	
@@ -287,12 +285,12 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	CGFloat width = imageWidth;
 	CGFloat height = imageHeight;
 	
-	// 頂点シェーダーの 4 頂点を準備します。今回は画像と同じサイズの正方形を用意していることになっているはずです。
+	// 頂点シェーダーの 4 頂点を準備します。今回は画像と同じサイズの正方形を 2 つのポリゴンで描きます。
 	GLKVector2 positions[4] =
 	{
 		{ 0.0, 		0.0	 	},
-		{ width, 	0.0 	},
 		{ 0.0,		height	},
+		{ width, 	0.0 	},
 		{ width,	height	}
 	};
 		
@@ -300,11 +298,11 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	GLKVector2 texCoords[4] =
 	{
 		{ 0.0,		0.0 	},
-		{ 1.0,		0.0 	},
 		{ 0.0,		1.0 	},
+		{ 1.0,		0.0 	},
 		{ 1.0,		1.0 	}
 	};
-		
+
 	// テクスチャの画像データを準備します。
 	size_t imageBytesPerRow = CGImageGetBytesPerRow(imageRef);
 	size_t imageBitsPerComponent = CGImageGetBitsPerComponent(imageRef);
@@ -348,12 +346,8 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	// param9: テクスチャに割り当てる画像データです。
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, imageWidth, imageHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData); EzOpenGLESAssert;
 	
-	// テクスチャサイズが 2 の累乗であればミップマップを作成できます。ミップマップを使うときれいになるようです。GL_TEXTURE_MIN_FILTER で GL_LINEAR_MIPMAP_LINEAR するためには必要です。
-//	glGenerateMipmap(GL_TEXTURE_2D); EzOpenGLESAssert;
-	
 	// テクスチャを準備できたら、画像データは不要になります。
 	free(imageData);
-	
 	
 	// シェーダーを使用するために、プログラムを使います。
 	glUseProgram(program); EzOpenGLESAssert;
@@ -362,13 +356,16 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	glEnable(GL_BLEND); EzOpenGLESAssert;
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); EzOpenGLESAssert;
 	
+//	// カリングを有効にして、裏向きのポリゴンを表示しないようにします。
+//	glEnable(GL_CULL_FACE);
+//	glCullFace(GL_BACK);
 	
 	// テクスチャの横 (GL_TEXTURE_WRAP_S) と縦 (GL_TEXTURE_WRAP_T) のリピート方法を指定します。
 	// GL_REPEAT は繰り返し適用で、2 の累乗のテクスチャサイズのときに使えるらしいです。淵を延々と延ばす場合は GL_CLAMP_TO_EDGE を指定するそうです。
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); EzOpenGLESAssert;
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); EzOpenGLESAssert;
 
-	// 拡大 (GL_TEXTURE_MAG_FILTER) 縮小 (GL_TEXTURE_MIN_FILTER) 時の補完指定を行います。指定しないと正しく表示されないか荒くなるようでrす。
+	// 拡大 (GL_TEXTURE_MAG_FILTER) 縮小 (GL_TEXTURE_MIN_FILTER) 時の補完指定を行います。指定しないと正しく表示されないか荒くなるようです。
 	// GL_NEAREST=最近傍法, GL_LINEAR=双線形補完
 	// 縮小の場合で、ミップマップが有効なときは次のものも選べます。
 	// GL_NEAREST_MIPMAP_NEAREST, GL_LINEAR_MIPMAP_NEAREST, GL_NEAREST_MIPMAP_LINEAR, GL_LINEAR_MIPMAP_LINEAR
@@ -423,12 +420,16 @@ void EzOpenGLESShaderCompileAssert(GLuint shader)
 	// glVertexPointer で用意した頂点 4 つをレンダーバッファー描画します。
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4); EzOpenGLESAssert;
 
+	// これまでの描画を全て実行することを命令します。なくても大丈夫そうです。
+	glFlush(); EzOpenGLESAssert;
+	
 	// レンダーバッファーへの描画が終わったら、ブレンド設定などはリセットしてもよくなります。
 	glDisable(GL_BLEND); EzOpenGLESAssert;
 	
-	// これまでの描画を全て実行することを命令します。なくても大丈夫そうです。
-	glFlush(); EzOpenGLESAssert;
-		
+	// attribute 設定の関連付けも無効化できます。
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	
 	// レンダーバッファーに描画した内容を画面に描画します。
 	[mpGLContext presentRenderbuffer:GL_RENDERBUFFER];
 }
